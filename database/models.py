@@ -40,14 +40,14 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 ### ONE TO MANY
-session.add(User(tg_id='98217369', city='Kostroma'))
-user1 = session.query(User).filter_by(tg_id='98217369').first()
+# session.add(User(tg_id='98217369', city='Kostroma'))
+# user1 = session.query(User).filter_by(tg_id='98217369').first()
  
-session.add(WeatherReport(temp=-30, owner=user1.id, feels_like=-35, wind_speed=5, pressure_mm=760, city='Anadyr'))
-report1 = session.query(WeatherReport).filter_by(id=2).first()
-user1.reports.append(report1)
+# session.add(WeatherReport(temp=-30, owner=user1.id, feels_like=-35, wind_speed=5, pressure_mm=760, city='Anadyr'))
+# report1 = session.query(WeatherReport).filter_by(id=2).first()
+# user1.reports.append(report1)
 
-session.commit()
+# session.commit()
 
 
 #session.add(WeatherReport(temp=-10, feels_like=-15, wind_speed=5, pressure_mm=768, city='Moscow'))
@@ -87,4 +87,3 @@ session.commit()
 # session.commit()
 
 
-print(user1.reports)
