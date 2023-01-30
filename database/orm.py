@@ -16,6 +16,13 @@ def add_user(tg_id):
         session.add(new_user)
         session.commit()
 
+
+def get_all_users():
+    session = Session()
+    users = session.query(User).all()
+    return users
+
+
 def set_user_city(tg_id, city):
     session = Session()
     user = session.query(User).filter(User.tg_id == tg_id).first()
@@ -43,3 +50,16 @@ def get_reports(tg_id):
     user = session.query(User).filter(User.tg_id == tg_id).first()
     reports = user.reports
     return reports
+
+
+def get_report(report_id):
+    session = Session()
+    report = session.get(WeatherReport, report_id)
+    return report
+
+
+def delete_user_report(report_id):
+    session = Session()
+    report = session.get(WeatherReport, report_id)
+    session.delete(report)
+    session.commit()
